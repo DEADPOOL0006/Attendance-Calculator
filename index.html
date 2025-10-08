@@ -3065,67 +3065,89 @@
             });
         }
 
-      // ===== PRELOAD GIFS =====
-    const gifUrls = [
-        "https://media1.tenor.com/m/WaAwRUTYZMoAAAAC/mahesh-babu-sarkaru-vaari-paata.gif", // 100%
-        "https://media1.tenor.com/m/473SWJcNltAAAAAC/ustad-ramcharan.gif", // 96-99%
-        "https://media1.tenor.com/m/D5MZSflLKo4AAAAC/wild-fire-wild-fireuuu.gif", // 95%
-        "https://media1.tenor.com/m/tsR_Jh7tN2QAAAAC/dookudu-mahesh-babu.gif", // 90-94%
-        "https://media1.tenor.com/m/h74OU08uDo8AAAAC/petta-petta-pongal.gif", // 86-89%
-        "https://media1.tenor.com/m/NJOcESg6x5wAAAAC/i-am-safe-prabhas.gif", // 85%
-        "https://media1.tenor.com/m/QayrQqNWTU0AAAAC/nagarjuna-kodutunam-nagarjuna-koduthunaam.gif", // 80-84%
-        "https://media1.tenor.com/m/AcANgQw7aGoAAAAC/nani-most-excited-moment-in-jersey-movie-nani.gif", // 75%
-        "https://media1.tenor.com/m/wr8kJmGOJo4AAAAC/king-srihari.gif", // 70-79%
-        "https://media1.tenor.com/m/MchAs9GHmTcAAAAC/veera-simha-reddy-telugu.gif", // 66-69%
-        "https://media1.tenor.com/m/mRldaoonXt4AAAAC/dhanush-crying-dhanush.gif", // 65%
-        "https://media1.tenor.com/m/KMsTOzgDMhcAAAAC/iamhemuk-telugu-gifs.gif", // 56-59%
-        "https://media1.tenor.com/m/k4_QtySWzV4AAAAC/pain-gif.gif", // 55%
-        "https://media1.tenor.com/m/W9aYXc4RU30AAAAC/iamhemuk-telugu-gifs.gif", // 50-54%
-        "https://media1.tenor.com/m/u2Du_fJpnAwAAAAC/emotional-allu-arjun.gif", // 45-49%
-        "https://media.tenor.com/3_yd8WgUI44AAAAM/telugu-depressed-telugu-sad.gif", // 40-44%
-        "https://media1.tenor.com/m/5Sgx9rvnUWEAAAAC/aravind-swamy-cry-aravind-swamy-sad.gif", // 35-39%
-        "https://media1.tenor.com/m/1oRD-ljhQ20AAAAC/hi-nanna-nani.gif", // 30-34%
-        "https://media1.tenor.com/m/lxuBoZpwTN0AAAAC/iamhemuk-xhk.gif", // 20-29%
-        "https://media1.tenor.com/m/TFGtn-ubsOMAAAAC/brahmi-bramhi.gif", // 10-19%
-        "https://media1.tenor.com/m/txVq4SBENycAAAAC/crying-cry.gif" // <10%
-    ];
+ // ===== PRELOAD GIFS =====
+const gifUrls = [
+    "https://media1.tenor.com/m/WaAwRUTYZMoAAAAC/mahesh-babu-sarkaru-vaari-paata.gif",               // 100%
+    "https://media1.tenor.com/m/473SWJcNltAAAAAC/ustad-ramcharan.gif",                               // 96–99%
+    "https://media1.tenor.com/m/D5MZSflLKo4AAAAC/wild-fire-wild-fireuuu.gif",                       // 95%
+    "https://media1.tenor.com/m/tsR_Jh7tN2QAAAAC/dookudu-mahesh-babu.gif",                           // 90–94%
+    "https://media1.tenor.com/m/h74OU08uDo8AAAAC/petta-petta-pongal.gif",                           // 86–89%
+    "https://media1.tenor.com/m/NJOcESg6x5wAAAAC/i-am-safe-prabhas.gif",                             // 85%
+    "https://media1.tenor.com/m/A-yUew_jpbEAAAAC/satya-rangabali.gif",                               // 80%
+    "https://media1.tenor.com/m/QayrQqNWTU0AAAAC/nagarjuna-kodutunam-nagarjuna-koduthunaam.gif",     // 81–84%
+    "https://media1.tenor.com/m/AcANgQw7aGoAAAAC/nani-most-excited-moment-in-jersey-movie-nani.gif",  // 75%
+    "https://media1.tenor.com/m/QuVo9W_FL1oAAAAC/hammaya-safe.gif",                                  // 76–79%
+    "https://media1.tenor.com/m/wr8kJmGOJo4AAAAC/king-srihari.gif",                                   // 70–74%
+    "https://media1.tenor.com/m/MchAs9GHmTcAAAAC/veera-simha-reddy-telugu.gif",                      // 66–69%
+    "https://media1.tenor.com/m/0QWz0O7H5f8AAAAC/sad-emotional.gif",                                // 60–64%
+    "https://media1.tenor.com/m/mRldaoonXt4AAAAC/dhanush-crying-dhanush.gif",                         // 65%
+    "https://media1.tenor.com/m/KMsTOzgDMhcAAAAC/iamhemuk-telugu-gifs.gif",                         // 56–59%
+    "https://media1.tenor.com/m/k4_QtySWzV4AAAAC/pain-gif.gif",                                     // 55%
+    "https://media1.tenor.com/m/W9aYXc4RU30AAAAC/iamhemuk-telugu-gifs.gif",                         // 50–54%
+    "https://media1.tenor.com/m/9PKSROs2uVMAAAAC/anudeep-kv-nag-ashwin.gif",                          // 45%
+    "https://media1.tenor.com/m/u2Du_fJpnAwAAAAC/emotional-allu-arjun.gif",                         // 46–49%
+    "https://media1.tenor.com/m/Lkljd5DExD0AAAAC/brahmi-telugu.gif",                                // 40–44%
+    "https://media1.tenor.com/m/1oRD-ljhQ20AAAAC/hi-nanna-nani.gif",                                // 35%
+    "https://media1.tenor.com/m/5Sgx9rvnUWEAAAAC/aravind-swamy-cry-aravind-swamy-sad.gif",           // 36–39%
+    "https://media1.tenor.com/m/jFr4k5_-qfEAAAAC/nandamuri-balakrishna-breakdown-in-tears-at-puneet-rajkumar-last-rites-balakrishna.gif", // 30–34%
+    "https://media1.tenor.com/m/jGejyJp3QLh8AAAAC/crying-pokiri.gif",                                // 20–24%
+    "https://media1.tenor.com/m/Ju8QAL1plQQAAAAC/sad-cry.gif",                                      // 25%
+    "https://media1.tenor.com/m/NPu89e3J1LkAAAAC/bro-review-imax-laxman.gif",                       // 26–29%
+    "https://media1.tenor.com/m/PlMNhBfGYqAAAAAC/crying-suriya.gif",                                // 16–19%
+    "https://media1.tenor.com/m/TFGtn-ubsOMAAAAC/brahmi-bramhi.gif",                                // 15%
+    "https://media1.tenor.com/m/mmaCkwTGDqcAAAAC/telugu-depressed-allu-arjun-sad-cry.gif",           // 10–14%
+    "https://media1.tenor.com/m/txVq4SBENycAAAAC/crying-cry.gif",                                    // 0–4%
+    "https://media1.tenor.com/m/KSsO31-7NzEAAAAC/lingaa-rajini.gif",                                // 5%
+    "https://media1.tenor.com/m/MvWb1FilxQoAAAAC/rajnikant-sivaji-the-boss.gif"                     // 6–9%
+];
 
-    // Preload all GIFs
-    gifUrls.forEach(url => {
-        const img = new Image();
-        img.src = url;
-    });
+// Preload all GIFs
+gifUrls.forEach(url => {
+    const img = new Image();
+    img.src = url;
+});
 
-    // ===== SHOW GIF FUNCTION =====
-    function showGif(percentage) {
-        const gifContainer = document.getElementById('gifContainer');
-        const gifElement = document.getElementById('attendanceGif');
+// ===== SHOW GIF FUNCTION =====
+function showGif(percentage) {
+    const gifContainer = document.getElementById('gifContainer');
+    const gifElement = document.getElementById('attendanceGif');
 
-        if (percentage === 100) gifElement.src = gifUrls[0];
-        else if (percentage >= 96 && percentage <= 99) gifElement.src = gifUrls[1];
-        else if (percentage === 95) gifElement.src = gifUrls[2];
-        else if (percentage >= 90 && percentage <= 94) gifElement.src = gifUrls[3];
-        else if (percentage >= 86 && percentage <= 89) gifElement.src = gifUrls[4];
-        else if (percentage === 85) gifElement.src = gifUrls[5];
-        else if (percentage >= 80 && percentage <= 84) gifElement.src = gifUrls[6];
-        else if (percentage === 75) gifElement.src = gifUrls[7];
-        else if (percentage >= 76 && percentage <= 79) gifElement.src = gifUrls[8];
-        else if (percentage >= 70 && percentage <= 74) gifElement.src = gifUrls[8];
-        else if (percentage >= 66 && percentage <= 69) gifElement.src = gifUrls[9];
-        else if (percentage === 65) gifElement.src = gifUrls[10];
-        else if (percentage >= 56 && percentage <= 59) gifElement.src = gifUrls[11];
-        else if (percentage === 55) gifElement.src = gifUrls[12];
-        else if (percentage >= 50 && percentage <= 54) gifElement.src = gifUrls[13];
-        else if (percentage >= 45 && percentage <= 49) gifElement.src = gifUrls[14];
-        else if (percentage >= 40 && percentage <= 44) gifElement.src = gifUrls[15];
-        else if (percentage >= 35 && percentage <= 39) gifElement.src = gifUrls[16];
-        else if (percentage >= 30 && percentage <= 34) gifElement.src = gifUrls[17];
-        else if (percentage >= 20 && percentage <= 29) gifElement.src = gifUrls[18];
-        else if (percentage >= 10 && percentage <= 19) gifElement.src = gifUrls[19];
-        else gifElement.src = gifUrls[20];
+    if (percentage === 100) gifElement.src = gifUrls[0];
+    else if (percentage >= 96 && percentage <= 99) gifElement.src = gifUrls[1];
+    else if (percentage === 95) gifElement.src = gifUrls[2];
+    else if (percentage >= 90 && percentage <= 94) gifElement.src = gifUrls[3];
+    else if (percentage >= 86 && percentage <= 89) gifElement.src = gifUrls[4];
+    else if (percentage === 85) gifElement.src = gifUrls[5];
+    else if (percentage === 80) gifElement.src = gifUrls[6];
+    else if (percentage >= 81 && percentage <= 84) gifElement.src = gifUrls[7];
+    else if (percentage === 75) gifElement.src = gifUrls[8];
+    else if (percentage >= 76 && percentage <= 79) gifElement.src = gifUrls[9];
+    else if (percentage >= 70 && percentage <= 74) gifElement.src = gifUrls[10];
+    else if (percentage >= 66 && percentage <= 69) gifElement.src = gifUrls[11];
+    else if (percentage >= 60 && percentage <= 64) gifElement.src = gifUrls[12];
+    else if (percentage === 65) gifElement.src = gifUrls[13];
+    else if (percentage >= 56 && percentage <= 59) gifElement.src = gifUrls[14];
+    else if (percentage === 55) gifElement.src = gifUrls[15];
+    else if (percentage >= 50 && percentage <= 54) gifElement.src = gifUrls[16];
+    else if (percentage === 45) gifElement.src = gifUrls[17];
+    else if (percentage >= 46 && percentage <= 49) gifElement.src = gifUrls[18];
+    else if (percentage >= 40 && percentage <= 44) gifElement.src = gifUrls[19];
+    else if (percentage === 35) gifElement.src = gifUrls[20];
+    else if (percentage >= 36 && percentage <= 39) gifElement.src = gifUrls[21];
+    else if (percentage >= 30 && percentage <= 34) gifElement.src = gifUrls[22];
+    else if (percentage >= 20 && percentage <= 24) gifElement.src = gifUrls[23];
+    else if (percentage === 25) gifElement.src = gifUrls[24];
+    else if (percentage >= 26 && percentage <= 29) gifElement.src = gifUrls[25];
+    else if (percentage >= 16 && percentage <= 19) gifElement.src = gifUrls[26];
+    else if (percentage === 15) gifElement.src = gifUrls[27];
+    else if (percentage >= 10 && percentage <= 14) gifElement.src = gifUrls[28];
+    else if (percentage >= 0 && percentage <= 4) gifElement.src = gifUrls[29];     // 0–4%
+    else if (percentage === 5) gifElement.src = gifUrls[30];                         // 5%
+    else if (percentage >= 6 && percentage <= 9) gifElement.src = gifUrls[31];      // 6–9%
+    else gifElement.src = gifUrls[29];  // fallback (should not get here)
 
-        gifContainer.style.display = "flex"; // show container
-    }
+    gifContainer.style.display = "flex";
+}
 
         // ===== RESET FORM FUNCTION =====
         function resetForm() {
