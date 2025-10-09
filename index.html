@@ -2961,12 +2961,9 @@
             document.getElementById('requiredFor').textContent = requiredFor;
             document.getElementById('requiredPercentageText').textContent = requiredPercentage + '%';
             
-            // Update text if it's a projected calculation
-            if (isProjected) {
-                percentageText.textContent = "Projected Attendance";
-            } else {
-                percentageText.textContent = "Overall Attendance";
-            }
+if (isProjected) {
+    percentageText.textContent = "Overall Attendance";
+}
             
             // Update percentage circle with precise color gradient
             updatePercentageCircleColor(percentage);
@@ -2978,11 +2975,11 @@
             if (percentage >= requiredPercentage) {
                 attendanceStatus.style.background = 'linear-gradient(135deg, #E8F5E9, #C8E6C9)';
                 attendanceStatus.style.color = '#2E7D32';
-                statusMessage = `🎉 Excellent! You have sufficient attendance (${requiredPercentage}%)`;
+                statusMessage = `🎉 Great! Your attendance is enough (${requiredPercentage}%)`;
                 
                 
                 if (isProjected) {
-                    statusMessage = `🎉 Great! Even with your planned absences, you'll maintain sufficient attendance (${requiredPercentage}%+)`;
+                    statusMessage = `🎉 Great! Your attendance is enough (${requiredPercentage}%)`;
                 }
             } else {
                 attendanceStatus.style.background = 'linear-gradient(135deg, #FFEBEE, #FFCDD2)';
