@@ -312,7 +312,7 @@
     background:#fff;
     border:1px solid var(--border);
     border-radius:var(--radius);
-    padding:24px 18px;
+     padding:28px 20px;
     text-align:center;
     transition:.25s;
     box-shadow:var(--shadow-sm);
@@ -1057,13 +1057,60 @@
         overallTotal += 8;
       }
     });
+    
+    
+    
+    const overallAbsent =
+  overallTotal - overallPresent;
 
-    const overallAbsent     = overallTotal - overallPresent;
-    const overallPercentage = ((overallPresent / overallTotal) * 100).toFixed(0);
-    const required          = Math.ceil((0.85 * overallTotal - overallPresent) / (1 - 0.85));
-    const classesNeeded     = required > 0 ? required : 0;
+const overallPercentage =
+  ((overallPresent / overallTotal) * 100).toFixed(0);
 
-    // BUNK LOGIC
+const required =
+  Math.ceil(
+    (0.85 * overallTotal - overallPresent) / (1 - 0.85)
+  );
+
+const classesNeeded =
+  required > 0 ? required : 0;
+
+// ===== DAY CALCULATION =====
+const classesPerDay = 8;
+
+const fullDays =
+  Math.floor(classesNeeded / classesPerDay);
+
+const remainingClasses =
+  classesNeeded % classesPerDay;
+
+let neededText = "";
+
+if (classesNeeded > 0) {
+
+  if (fullDays > 0 && remainingClasses > 0) {
+
+    neededText =
+      `${fullDays} Full Day${fullDays > 1 ? "s" : ""} + ${remainingClasses} Classes on Next Day`;
+
+  }
+
+  else if (fullDays > 0) {
+
+    neededText =
+      `${fullDays} Full Day${fullDays > 1 ? "s" : ""}`;
+
+  }
+
+  else {
+
+    neededText =
+      `${remainingClasses} Classes Needed`;
+
+  }
+
+}
+
+// ===== BUNK LOGIC =====
 const bunkClasses =
   overallPercentage >= 85
     ? Math.max(
@@ -1073,6 +1120,9 @@ const bunkClasses =
         )
       )
     : 0;
+    
+    
+    
 
     // AFTER BUNK ATTENDANCE LOGIC
     const afterBunkAttendance =
@@ -1138,10 +1188,40 @@ const bunkClasses =
         <div class="num" style="color:#9333ea;">${overallPercentage}%</div>
         <div class="label">Attendance</div>
       </div>
-      <div class="box">
-        <div class="num" style="color:#f59e0b;">${classesNeeded}</div>
-        <div class="label">Classes Needed for 85% Attendance</div>
-      </div>
+      
+      
+<div class="box">
+
+  <div class="num" style="color:#f59e0b;">
+    ${classesNeeded}
+  </div>
+
+  <div class="label">
+    Classes Needed for 85% Attendance
+  </div>
+
+  ${classesNeeded > 0 ? `
+
+<div style="
+  margin-top:14px;
+  padding-top:10px;
+  border-top:1px solid #e5e7eb;
+  font-size:14px;
+  font-weight:600;
+  color:#64748b;
+  line-height:1.9;
+">
+
+      ${neededText}
+
+    </div>
+
+  ` : ""}
+
+</div>
+      
+      
+      
       
 <div class="box">
   <div class="num" style="color:#0f766e;">
@@ -1152,16 +1232,35 @@ const bunkClasses =
     Class Bunk
   </div>
 
-  ${bunkClasses > 0 ? `
-    <div style="
-      margin-top:8px;
-      font-size:13px;
-      font-weight:600;
-      color:#64748b;
-    ">
-      After Bunk ${afterBunkAttendance}%
-    </div>
-  ` : ""}
+ 
+
+${bunkClasses > 0 ? `
+
+  <div style="
+    margin-top:14px;
+    padding-top:10px;
+    border-top:1px solid #e5e7eb;
+    font-size:14px;
+    font-weight:600;
+    color:#64748b;
+    line-height:1.9;
+  ">
+
+    ${Math.floor(bunkClasses / 8) > 0
+      ? `${Math.floor(bunkClasses / 8)} Full Day${Math.floor(bunkClasses / 8) > 1 ? "s" : ""}${bunkClasses % 8 ? ` + ${bunkClasses % 8} Classes` : ""}`
+      : `${bunkClasses} Classes`
+    }
+
+    <br>
+
+    After Bunk ${afterBunkAttendance}%
+
+  </div>
+
+` : ""}
+
+
+
 </div>`;
   }
 </script></body>
