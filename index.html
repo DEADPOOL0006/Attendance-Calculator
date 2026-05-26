@@ -491,6 +491,272 @@
     letter-spacing:.5px;
   }
 
+  /* ══════════════════════════════════════════
+     WHAT-IF ABSENCE CALCULATOR
+  ══════════════════════════════════════════ */
+  .whatif-card {
+    background: linear-gradient(135deg, #fdf4ff 0%, #f5f3ff 50%, #eff6ff 100%);
+    border: 1.5px solid #e9d5ff;
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-top: 20px;
+    animation: fadeIn .4s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .whatif-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #7c3aed, #2563eb, #0891b2);
+  }
+
+  .whatif-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .whatif-icon {
+    width: 42px;
+    height: 42px;
+    background: linear-gradient(135deg, #7c3aed, #2563eb);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(124,58,237,.3);
+  }
+
+  .whatif-icon svg {
+    width: 22px;
+    height: 22px;
+    color: #fff;
+  }
+
+  .whatif-title {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--text);
+    letter-spacing: -.3px;
+  }
+
+  .whatif-subtitle {
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 500;
+    margin-top: 2px;
+  }
+
+  .whatif-input-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .whatif-input-group {
+    flex: 1;
+    min-width: 200px;
+    position: relative;
+  }
+
+  .whatif-input-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .whatif-input-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .whatif-input-wrap svg {
+    position: absolute;
+    left: 16px;
+    width: 20px;
+    height: 20px;
+    color: #7c3aed;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  #whatifInput {
+    width: 100%;
+    padding: 16px 16px 16px 48px;
+    font-size: 20px;
+    font-weight: 700;
+    border: 2px solid #e9d5ff;
+    border-radius: 14px;
+    outline: none;
+    background: #fff;
+    color: var(--text);
+    letter-spacing: .5px;
+    transition: all .2s ease;
+  }
+
+  #whatifInput:focus {
+    border-color: #7c3aed;
+    box-shadow: 0 0 0 4px rgba(124,58,237,.1);
+  }
+
+  #whatifInput::placeholder {
+    color: #c4b5fd;
+    font-weight: 500;
+    font-size: 16px;
+  }
+
+  /* Step buttons */
+  .whatif-step-btns {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex-shrink: 0;
+  }
+
+  .step-btn {
+    width: 36px;
+    height: 36px;
+    border: 1.5px solid #e9d5ff;
+    border-radius: 10px;
+    background: #fff;
+    color: #7c3aed;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .15s;
+    line-height: 1;
+  }
+
+  .step-btn:hover {
+    background: #7c3aed;
+    color: #fff;
+    border-color: #7c3aed;
+  }
+
+  /* Result panel */
+  #whatifResult {
+    margin-top: 20px;
+    display: none;
+    animation: fadeIn .3s ease;
+  }
+
+  .whatif-result-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+  }
+
+  .wi-box {
+    background: #fff;
+    border-radius: 14px;
+    padding: 20px 16px;
+    text-align: center;
+    border: 1.5px solid var(--border);
+    box-shadow: var(--shadow-sm);
+    transition: .2s;
+  }
+
+  .wi-box:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .wi-num {
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -1.5px;
+    margin-bottom: 8px;
+  }
+
+  .wi-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: .4px;
+  }
+
+  .wi-sub {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid #f1f5f9;
+    line-height: 1.5;
+  }
+
+  /* Status pill */
+  .wi-status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 18px;
+    border-radius: 999px;
+    font-size: 15px;
+    font-weight: 700;
+    margin-top: 14px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .wi-status-pill.safe {
+    background: var(--green-soft);
+    color: var(--green);
+    border: 1.5px solid #86efac;
+  }
+
+  .wi-status-pill.danger {
+    background: var(--red-soft);
+    color: var(--red);
+    border: 1.5px solid #fca5a5;
+  }
+
+  .wi-status-pill.warning {
+    background: var(--amber-soft);
+    color: var(--amber);
+    border: 1.5px solid #fde68a;
+  }
+
+  .wi-status-pill::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: currentColor;
+    flex-shrink: 0;
+  }
+
+  /* Day breakdown badge */
+  .wi-day-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: #f5f3ff;
+    color: #7c3aed;
+    border: 1.5px solid #e9d5ff;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 700;
+    margin-top: 10px;
+  }
+
   /* ── Anti-Inspect Overlay ── */
   #devtools-blocker{
     display:none;
@@ -535,6 +801,9 @@
     .time{ font-size:12px; }
     .status{ font-size:32px; }
     .date-notice{ font-size:13px; padding:12px 14px; }
+    .whatif-card{ padding:20px; }
+    .whatif-title{ font-size:16px; }
+    .wi-num{ font-size:32px; }
   }
 
   /* ===== MOBILE ===== */
@@ -639,6 +908,19 @@
 
     .date-notice{ font-size:13px; padding:12px 14px; gap:10px; border-radius:12px; }
     .date-notice svg{ width:20px; height:20px; }
+
+    /* What-if mobile */
+    .whatif-card{ padding:16px; }
+    .whatif-title{ font-size:16px; }
+    .whatif-icon{ width:38px; height:38px; border-radius:10px; }
+    .whatif-icon svg{ width:18px; height:18px; }
+    #whatifInput{ padding:14px 14px 14px 46px; font-size:18px; border-radius:12px; }
+    .step-btn{ width:34px; height:34px; font-size:18px; border-radius:9px; }
+    .whatif-result-grid{ grid-template-columns:repeat(2,1fr); gap:10px; }
+    .wi-num{ font-size:28px; }
+    .wi-label{ font-size:11px; }
+    .wi-sub{ font-size:12px; }
+    .wi-status-pill{ font-size:14px; padding:9px 14px; }
   }
 
   /* ===== SMALL MOBILE ===== */
@@ -682,6 +964,21 @@
 
     .date-notice{ font-size:12px; padding:10px 12px; gap:8px; border-radius:10px; }
     .date-notice svg{ width:18px; height:18px; }
+
+    /* What-if small mobile */
+    .whatif-card{ padding:12px; }
+    .whatif-title{ font-size:15px; }
+    .whatif-icon{ width:34px; height:34px; border-radius:9px; }
+    .whatif-icon svg{ width:16px; height:16px; }
+    .whatif-header{ gap:10px; margin-bottom:16px; }
+    #whatifInput{ padding:13px 13px 13px 42px; font-size:17px; border-radius:11px; }
+    .whatif-input-wrap svg{ width:18px; height:18px; left:13px; }
+    .whatif-result-grid{ gap:8px; }
+    .wi-num{ font-size:24px; }
+    .wi-box{ padding:14px 10px; border-radius:12px; }
+    .wi-label{ font-size:10px; }
+    .wi-status-pill{ font-size:13px; padding:8px 12px; border-radius:12px; }
+    .wi-day-badge{ font-size:12px; padding:5px 10px; }
   }
 </style>
 </head>
@@ -729,6 +1026,61 @@
         </div>
 
         <div id="attendanceGrid" class="grid"></div>
+
+        <!-- ══════════════════════════════════════════
+             WHAT-IF ABSENCE CALCULATOR (NEW FEATURE)
+        ══════════════════════════════════════════ -->
+        <div class="whatif-card" id="whatifCard">
+          <div class="whatif-header">
+            <div class="whatif-icon">
+              <!-- Calculator / scenario icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="4" y="2" width="16" height="20" rx="2"/>
+                <line x1="8" y1="6" x2="16" y2="6"/>
+                <line x1="8" y1="10" x2="10" y2="10"/>
+                <line x1="14" y1="10" x2="16" y2="10"/>
+                <line x1="8" y1="14" x2="10" y2="14"/>
+                <line x1="14" y1="14" x2="16" y2="14"/>
+                <line x1="8" y1="18" x2="10" y2="18"/>
+                <line x1="14" y1="18" x2="16" y2="18"/>
+              </svg>
+            </div>
+            <div>
+              <div class="whatif-title">Future Attendance Calculator</div>
+              <div class="whatif-subtitle">Check attendance after future absences</div>
+            </div>
+          </div>
+
+          <div class="whatif-input-row">
+            <div class="whatif-input-group">
+              <label class="whatif-input-label" for="whatifInput">Classes you plan to skip</label>
+              <div class="whatif-input-wrap">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/>
+                  <line x1="12" y1="8" x2="12" y2="12"/>
+                  <line x1="12" y1="16" x2="12.01" y2="16"/>
+                </svg>
+                <input
+                  type="number"
+                  id="whatifInput"
+                  min="1"
+                  max="999"
+                  placeholder="e.g. 8"
+                  oninput="calcWhatIf()"
+                  style="padding-left:48px;"
+                />
+              </div>
+            </div>
+            <div class="whatif-step-btns">
+              <button class="step-btn" onclick="stepWhatIf(1)" title="Increase by 1">+</button>
+              <button class="step-btn" onclick="stepWhatIf(-1)" title="Decrease by 1">−</button>
+            </div>
+          </div>
+
+          <div id="whatifResult"></div>
+        </div>
+        <!-- END WHAT-IF CARD -->
+
       </div>
     </div>
   </div>
@@ -748,61 +1100,50 @@
       blocker.style.display = 'none';
     }
 
-    // ── 1. Block right-click context menu ──────────────
-
-    // ── 2. Block keyboard shortcuts ────────────────────
     document.addEventListener('keydown', function (e) {
       var key = e.key || e.keyCode;
 
-      // F12
       if (e.keyCode === 123) {
         e.preventDefault();
         showBlocker();
         return;
       }
 
-      // Ctrl+Shift+I / Cmd+Opt+I  (Inspector)
       if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'I' || e.key === 'i')) {
         e.preventDefault();
         showBlocker();
         return;
       }
 
-      // Ctrl+Shift+J / Cmd+Opt+J  (Console)
       if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'J' || e.key === 'j')) {
         e.preventDefault();
         showBlocker();
         return;
       }
 
-      // Ctrl+Shift+C / Cmd+Opt+C  (Element picker)
       if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'C' || e.key === 'c')) {
         e.preventDefault();
         showBlocker();
         return;
       }
 
-      // Ctrl+U  (View Source)
       if ((e.ctrlKey || e.metaKey) && (e.key === 'u' || e.key === 'U')) {
         e.preventDefault();
         showBlocker();
         return;
       }
 
-      // Ctrl+S  (Save page)
       if ((e.ctrlKey || e.metaKey) && (e.key === 's' || e.key === 'S')) {
         e.preventDefault();
         return;
       }
 
-      // Ctrl+A  (Select all)
       if ((e.ctrlKey || e.metaKey) && (e.key === 'a' || e.key === 'A')) {
         e.preventDefault();
         return;
       }
     });
 
-    // ── 3. DevTools open detection via window size diff ─
     var devtoolsThreshold = 160;
     var devtoolsOpen = false;
 
@@ -825,7 +1166,6 @@
 
     setInterval(checkDevTools, 500);
 
-    // ── 4. Debugger trap (slows automated inspection) ──
     var devtoolsDetect = new Image();
     Object.defineProperty(devtoolsDetect, 'id', {
       get: function () {
@@ -839,9 +1179,11 @@
 
 
   // ── State ──────────────────────────────────────────────────────────────────
-  let allData     = {};
-  let currentReg  = "";
-  let currentDate = "";
+  let allData          = {};
+  let currentReg       = "";
+  let currentDate      = "";
+  let _overallPresent  = 0;   // stored after showAttendance so whatif can use it
+  let _overallTotal    = 0;
 
   function generateDateRange(startStr, endStr) {
     function parse(s) {
@@ -864,13 +1206,10 @@
 
   function updateDateRange() {
     const availableDates = Object.keys(allData);
-
     if (availableDates.length > 0) {
       const firstDate = availableDates[0];
-      const lastDate = availableDates[availableDates.length - 1];
-
-      document.getElementById("dateRangeText").innerText =
-        `${firstDate} — ${lastDate}`;
+      const lastDate  = availableDates[availableDates.length - 1];
+      document.getElementById("dateRangeText").innerText = `${firstDate} — ${lastDate}`;
     }
   }
 
@@ -893,7 +1232,6 @@
           allData[dateStr] = results[i].slice(2);
         }
       });
-
       updateDateRange();
     });
 
@@ -914,6 +1252,11 @@
     document.getElementById("error").style.display      = "none";
     document.getElementById("clearBtn").style.display   = "none";
     document.getElementById("regInput").focus();
+    // Reset what-if
+    const wi = document.getElementById("whatifInput");
+    if (wi) wi.value = "";
+    const wr = document.getElementById("whatifResult");
+    if (wr) { wr.style.display = "none"; wr.innerHTML = ""; }
   }
 
   function searchStudent() {
@@ -944,6 +1287,12 @@
 
     buildDateItems(regNo);
     showAttendance(latestDate, regNo);
+
+    // Reset what-if whenever a new student is searched
+    const wi = document.getElementById("whatifInput");
+    if (wi) wi.value = "";
+    const wr = document.getElementById("whatifResult");
+    if (wr) { wr.style.display = "none"; wr.innerHTML = ""; }
 
     document.getElementById("regInput").blur();
   }
@@ -1057,79 +1406,39 @@
         overallTotal += 8;
       }
     });
-    
-    
-    
-    const overallAbsent =
-  overallTotal - overallPresent;
 
-const overallPercentage =
-  ((overallPresent / overallTotal) * 100).toFixed(0);
+    // Save to module-level vars for use in whatif calc
+    _overallPresent = overallPresent;
+    _overallTotal   = overallTotal;
 
-const required =
-  Math.ceil(
-    (0.85 * overallTotal - overallPresent) / (1 - 0.85)
-  );
+    const overallAbsent = overallTotal - overallPresent;
+    const overallPercentage = ((overallPresent / overallTotal) * 100).toFixed(2);
+    const required = Math.ceil((0.85 * overallTotal - overallPresent) / (1 - 0.85));
+    const classesNeeded = required > 0 ? required : 0;
 
-const classesNeeded =
-  required > 0 ? required : 0;
+    const classesPerDay    = 8;
+    const fullDays         = Math.floor(classesNeeded / classesPerDay);
+    const remainingClasses = classesNeeded % classesPerDay;
 
-// ===== DAY CALCULATION =====
-const classesPerDay = 8;
+    let neededText = "";
+    if (classesNeeded > 0) {
+      if (fullDays > 0 && remainingClasses > 0) {
+        neededText = `${fullDays} Full Day${fullDays > 1 ? "s" : ""} + ${remainingClasses} Classes on Next Day`;
+      } else if (fullDays > 0) {
+        neededText = `${fullDays} Full Day${fullDays > 1 ? "s" : ""}`;
+      } else {
+        neededText = `${remainingClasses} Classes Needed`;
+      }
+    }
 
-const fullDays =
-  Math.floor(classesNeeded / classesPerDay);
+    const bunkClasses =
+      overallPercentage >= 85
+        ? Math.max(0, Math.floor((overallPresent - 0.85 * overallTotal) / 0.85))
+        : 0;
 
-const remainingClasses =
-  classesNeeded % classesPerDay;
-
-let neededText = "";
-
-if (classesNeeded > 0) {
-
-  if (fullDays > 0 && remainingClasses > 0) {
-
-    neededText =
-      `${fullDays} Full Day${fullDays > 1 ? "s" : ""} + ${remainingClasses} Classes on Next Day`;
-
-  }
-
-  else if (fullDays > 0) {
-
-    neededText =
-      `${fullDays} Full Day${fullDays > 1 ? "s" : ""}`;
-
-  }
-
-  else {
-
-    neededText =
-      `${remainingClasses} Classes Needed`;
-
-  }
-
-}
-
-// ===== BUNK LOGIC =====
-const bunkClasses =
-  overallPercentage >= 85
-    ? Math.max(
-        0,
-        Math.floor(
-          (overallPresent - 0.85 * overallTotal) / 0.85
-        )
-      )
-    : 0;
-    
-    
-    
-
-    // AFTER BUNK ATTENDANCE LOGIC
     const afterBunkAttendance =
       bunkClasses > 0
-        ? (
-            (overallPresent / (overallTotal + bunkClasses)) * 100
-          ).toFixed(2)
+        ? ((overallPresent / (overallTotal + bunkClasses)) * 100).toFixed(2)
         : overallPercentage;
 
     let infoStudent = student;
@@ -1188,80 +1497,151 @@ const bunkClasses =
         <div class="num" style="color:#9333ea;">${overallPercentage}%</div>
         <div class="label">Attendance</div>
       </div>
-      
-      
-<div class="box">
+      <div class="box">
+        <div class="num" style="color:#f59e0b;">${classesNeeded}</div>
+        <div class="label">Classes Needed for 85% Attendance</div>
+        ${classesNeeded > 0 ? `
+          <div style="margin-top:14px;padding-top:10px;border-top:1px solid #e5e7eb;font-size:14px;font-weight:600;color:#64748b;line-height:1.9;">
+            ${neededText}
+          </div>` : ""}
+      </div>
+      <div class="box">
+        <div class="num" style="color:#0f766e;">${bunkClasses}</div>
+        <div class="label">Class Bunk</div>
+        ${bunkClasses > 0 ? `
+          <div style="margin-top:14px;padding-top:10px;border-top:1px solid #e5e7eb;font-size:14px;font-weight:600;color:#64748b;line-height:1.9;">
+            ${Math.floor(bunkClasses / 8) > 0
+              ? `${Math.floor(bunkClasses / 8)} Full Day${Math.floor(bunkClasses / 8) > 1 ? "s" : ""}${bunkClasses % 8 ? ` + ${bunkClasses % 8} Classes` : ""}`
+              : `${bunkClasses} Classes`}
+            <br>After Bunk ${afterBunkAttendance}%
+          </div>` : ""}
+      </div>`;
 
-  <div class="num" style="color:#f59e0b;">
-    ${classesNeeded}
-  </div>
+    // Re-run whatif if a value is already entered
+    const wiInput = document.getElementById("whatifInput");
+    if (wiInput && wiInput.value) calcWhatIf();
+  }
 
-  <div class="label">
-    Classes Needed for 85% Attendance
-  </div>
 
-  ${classesNeeded > 0 ? `
+  // ══════════════════════════════════════════════════════
+  //  WHAT-IF ABSENCE CALCULATOR  ← NEW FEATURE
+  // ══════════════════════════════════════════════════════
 
-<div style="
-  margin-top:14px;
-  padding-top:10px;
-  border-top:1px solid #e5e7eb;
-  font-size:14px;
-  font-weight:600;
-  color:#64748b;
-  line-height:1.9;
-">
+  /**
+   * stepWhatIf(delta) — +1 or -1 button handler
+   */
+  function stepWhatIf(delta) {
+    const input = document.getElementById("whatifInput");
+    let val = parseInt(input.value, 10) || 0;
+    val = Math.max(1, val + delta);
+    input.value = val;
+    calcWhatIf();
+  }
 
-      ${neededText}
+  /**
+   * calcWhatIf() — main calculation, called on every keystroke / step
+   */
+  function calcWhatIf() {
+    const input      = document.getElementById("whatifInput");
+    const resultDiv  = document.getElementById("whatifResult");
+    const rawVal     = input.value.trim();
 
-    </div>
-
-  ` : ""}
-
-</div>
-      
-      
-      
-      
-<div class="box">
-  <div class="num" style="color:#0f766e;">
-    ${bunkClasses}
-  </div>
-
-  <div class="label">
-    Class Bunk
-  </div>
-
- 
-
-${bunkClasses > 0 ? `
-
-  <div style="
-    margin-top:14px;
-    padding-top:10px;
-    border-top:1px solid #e5e7eb;
-    font-size:14px;
-    font-weight:600;
-    color:#64748b;
-    line-height:1.9;
-  ">
-
-    ${Math.floor(bunkClasses / 8) > 0
-      ? `${Math.floor(bunkClasses / 8)} Full Day${Math.floor(bunkClasses / 8) > 1 ? "s" : ""}${bunkClasses % 8 ? ` + ${bunkClasses % 8} Classes` : ""}`
-      : `${bunkClasses} Classes`
+    // Hide result if empty or zero
+    if (!rawVal || parseInt(rawVal, 10) <= 0 || _overallTotal === 0) {
+      resultDiv.style.display = "none";
+      resultDiv.innerHTML     = "";
+      return;
     }
 
-    <br>
+    const absentCount  = Math.max(1, parseInt(rawVal, 10));
+    const newTotal     = _overallTotal + absentCount;
+    const newPresent   = _overallPresent;                          // no extra present classes
+    const newPct       = ((newPresent / newTotal) * 100).toFixed(2);
+    const currentPct   = ((_overallPresent / _overallTotal) * 100).toFixed(2);
+    const drop         = (parseFloat(currentPct) - parseFloat(newPct)).toFixed(2);
 
-    After Bunk ${afterBunkAttendance}%
+    // Day breakdown
+    const fullDays   = Math.floor(absentCount / 8);
+    const extraSlots = absentCount % 8;
 
-  </div>
+    let dayText = "";
+    if (fullDays > 0 && extraSlots > 0) {
+      dayText = `${fullDays} Full Day${fullDays > 1 ? "s" : ""} + ${extraSlots} Class${extraSlots > 1 ? "es" : ""}`;
+    } else if (fullDays > 0) {
+      dayText = `${fullDays} Full Day${fullDays > 1 ? "s" : ""}`;
+    } else {
+      dayText = `${extraSlots} Class${extraSlots > 1 ? "es" : ""}`;
+    }
 
-` : ""}
+    // Status pill
+    const numPct     = parseFloat(newPct);
+    let pillClass    = "safe";
+    let pillText     = "✓ Still above 85% — You're safe!";
+    if (numPct < 75) {
+      pillClass = "danger";
+      pillText  = "✗ Below 75% — Critical shortage!";
+    } else if (numPct < 85) {
+      pillClass = "warning";
+      pillText  = "⚠ Below 85% — Attendance at risk!";
+    }
 
+    // Extra classes needed to recover to 85% after these absences
+    const recoverNeeded = Math.ceil((0.85 * newTotal - newPresent) / (1 - 0.85));
+    const recoverClasses = recoverNeeded > 0 ? recoverNeeded : 0;
 
+    let recoverText = "";
+    if (recoverClasses > 0) {
+      const rFull  = Math.floor(recoverClasses / 8);
+      const rExtra = recoverClasses % 8;
+      if (rFull > 0 && rExtra > 0) {
+        recoverText = `${rFull} Full Day${rFull > 1 ? "s" : ""} + ${rExtra} Class${rExtra > 1 ? "es" : ""}`;
+      } else if (rFull > 0) {
+        recoverText = `${rFull} Full Day${rFull > 1 ? "s" : ""}`;
+      } else {
+        recoverText = `${rExtra} Class${rExtra > 1 ? "es" : ""}`;
+      }
+    }
 
-</div>`;
+    resultDiv.style.display = "block";
+    resultDiv.innerHTML = `
+      <div class="wi-status-pill ${pillClass}">${pillText}</div>
+
+      <div class="whatif-result-grid" style="margin-top:14px;">
+
+        <div class="wi-box">
+          <div class="wi-num" style="color:#dc2626;">${absentCount}</div>
+          <div class="wi-label">Planned Absences</div>
+          <div class="wi-day-badge">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            ${dayText}
+          </div>
+        </div>
+
+        <div class="wi-box">
+          <div class="wi-num" style="color:#7c3aed;">${newPct}%</div>
+          <div class="wi-label">New Attendance</div>
+          <div class="wi-sub" style="color:#dc2626;">▼ ${drop}% drop from ${currentPct}%</div>
+        </div>
+
+        <div class="wi-box">
+          <div class="wi-num" style="color:#2563eb;">${newTotal}</div>
+          <div class="wi-label">New Total Classes</div>
+          <div class="wi-sub">${_overallPresent} present out of ${newTotal}</div>
+        </div>
+
+        <div class="wi-box">
+          <div class="wi-num" style="color:#f59e0b;">${recoverClasses}</div>
+          <div class="wi-label">Classes to Recover 85%</div>
+          ${recoverClasses > 0
+            ? `<div class="wi-sub">${recoverText}</div>`
+            : `<div class="wi-sub" style="color:#16a34a;">No recovery needed 🎉</div>`}
+        </div>
+
+      </div>
+    `;
   }
+
+  // ══════════════════════════════════════════════════════
+
 </script></body>
 </html>
