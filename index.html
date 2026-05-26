@@ -7,7 +7,21 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&display=swap" rel="stylesheet">
+
+
 <style>
+
+
+@font-face {
+  font-family: 'Shikamaru';
+  src: url('https://cdn.jsdelivr.net/gh/studentsofklu/crt-attendances@main/Shikamaru.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
   :root{
     --bg:#f6f8fb;
     --bg-grad:radial-gradient(1200px 600px at 10% -10%, #e0e7ff 0%, transparent 60%),
@@ -40,8 +54,42 @@
   .title{ text-align:center; margin:8px 0 28px; }
   .badge{ display:inline-flex; align-items:center; gap:8px; padding:6px 14px; border-radius:999px; background:rgba(37,99,235,.08); color:var(--primary); font-weight:600; font-size:13px; letter-spacing:.3px; border:1px solid rgba(37,99,235,.15); margin-bottom:14px; }
   .badge::before{ content:""; width:7px; height:7px; border-radius:50%; background:var(--primary); box-shadow:0 0 0 4px rgba(37,99,235,.15); }
-  .title h1{ font-size:clamp(28px,4.2vw,44px); font-weight:800; letter-spacing:-1px; background:linear-gradient(90deg,#0b1220,#2563eb); -webkit-background-clip:text; background-clip:text; color:transparent; }
-  .title p{ margin-top:8px; font-size:16px; color:var(--muted); font-weight:500; }
+
+
+
+.title h1{
+  font-family:'Shikamaru' !important;
+  font-size:clamp(28px,4.2vw,44px);
+  font-weight:normal;
+  letter-spacing:-1px;
+
+  background:linear-gradient(180deg,#ff2a2a 0%, #c40000 45%, #4b0000 100%);
+
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+
+}
+
+
+
+ .title p{
+  margin-top:14px;
+
+  font-family:'Cinzel', serif;
+
+  font-size:18px;
+  font-weight:500;
+  letter-spacing:4px;
+
+  color:#3a3a3a;
+
+  text-transform:uppercase;
+}
+
+
+
+
   .card{ background:var(--card); padding:22px; border-radius:var(--radius); box-shadow:var(--shadow-md); border:1px solid var(--border); margin-bottom:20px; }
   .input-wrap{ position:relative; }
   .input-wrap svg{ position:absolute; left:18px; top:50%; transform:translateY(-50%); width:22px; height:22px; color:var(--muted); pointer-events:none; }
@@ -89,10 +137,32 @@
   .present{ background:var(--green-soft); border-color:#86efac; }
   .absent{ background:var(--red-soft); border-color:#fca5a5; }
   .time{ font-size:13px; color:var(--muted); margin-bottom:10px; font-weight:600; letter-spacing:.3px; }
-  .status{ font-size:36px; font-weight:800; margin-bottom:6px; letter-spacing:-1px; }
+  .status{
+  font-family:'Shikamaru' !important;
+
+  font-size:52px;
+  font-weight:normal;
+
+  margin-bottom:6px;
+
+  letter-spacing:2px;
+
+  line-height:1;
+}
   .present .status{ color:var(--green); }
   .absent .status{ color:var(--red); }
-  .word{ font-size:14px; font-weight:700; color:var(--text); text-transform:uppercase; letter-spacing:.5px; }
+  .word{
+  font-family:'Shikamaru' !important;
+
+  font-size:20px;
+  font-weight:normal;
+
+  color:var(--text);
+
+  letter-spacing:1px;
+
+  text-transform:uppercase;
+}
 
   /* ══ WHAT-IF CALCULATOR (updated with mode toggle) ══ */
   .whatif-card{ background:linear-gradient(135deg,#fdf4ff 0%,#f5f3ff 50%,#eff6ff 100%); border:1.5px solid #e9d5ff; border-radius:var(--radius); padding:24px; margin-top:20px; animation:fadeIn .4s ease; position:relative; overflow:hidden; }
@@ -173,7 +243,12 @@
   @media (max-width:768px){
     body{ padding:16px 12px 48px; }
     .title h1{ font-size:32px; }
-    .title p{ font-size:14px; }
+   .title p{
+  font-family:'Cinzel', serif !important;
+  font-size:16px !important;
+  letter-spacing:3px !important;
+  color:#3a3a3a !important;
+}
     .card{ padding:16px; margin-bottom:16px; }
     input{ padding:16px 16px 16px 48px; font-size:16px; border-radius:12px; }
     .input-wrap svg{ width:20px; height:20px; left:14px; }
@@ -202,8 +277,18 @@
     .grid{ grid-template-columns:repeat(2,1fr); gap:10px; margin-top:12px; }
     .slot{ padding:16px 12px; border-radius:12px; border-width:1.2px; }
     .time{ font-size:11px; margin-bottom:6px; }
-    .status{ font-size:30px; margin-bottom:4px; }
-    .word{ font-size:12px; }
+    .status{
+  font-family:'Shikamaru' !important;
+  font-size:42px !important;
+  margin-bottom:4px !important;
+  letter-spacing:2px !important;
+}
+
+.word{
+  font-family:'Shikamaru' !important;
+  font-size:16px !important;
+  letter-spacing:1px !important;
+}
     .date-notice{ font-size:13px; padding:12px 14px; gap:10px; border-radius:12px; }
     .date-notice svg{ width:20px; height:20px; }
     .whatif-card{ padding:16px; }
@@ -227,7 +312,14 @@
     .container{ max-width:100%; }
     .title{ margin:0 0 20px; }
     .title h1{ font-size:28px; letter-spacing:-.5px; }
-    .title p{ font-size:13px; margin-top:6px; }
+    .title p{
+  font-family:'Cinzel', serif !important;
+  font-size:15px !important;
+  letter-spacing:2px !important;
+  margin-top:10px !important;
+  color:#3a3a3a !important;
+  text-transform:uppercase !important;
+}
     .card{ padding:14px; margin-bottom:12px; }
     input{ padding:14px 14px 14px 44px; font-size:15px; border-radius:11px; }
     .input-wrap svg{ width:18px; height:18px; left:12px; }
@@ -252,8 +344,22 @@
     .grid{ grid-template-columns:repeat(2,1fr); gap:8px; margin-top:10px; }
     .slot{ padding:12px 10px; border-radius:10px; border-width:1px; }
     .time{ font-size:10px; margin-bottom:5px; }
-    .status{ font-size:26px; margin-bottom:2px; }
-    .word{ font-size:10px; }
+    .status{
+  font-family:'Shikamaru' !important;
+  font-size:36px !important;
+  font-weight:normal !important;
+  margin-bottom:2px !important;
+  letter-spacing:2px !important;
+  line-height:1 !important;
+}
+
+.word{
+  font-family:'Shikamaru' !important;
+  font-size:14px !important;
+  font-weight:normal !important;
+  letter-spacing:1px !important;
+  text-transform:uppercase !important;
+}
     .date-notice{ font-size:12px; padding:10px 12px; gap:8px; border-radius:10px; }
     .date-notice svg{ width:18px; height:18px; }
     .whatif-card{ padding:12px; }
