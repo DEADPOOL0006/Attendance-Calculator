@@ -1040,7 +1040,16 @@
         </div>
 
         <div class="wi-box">
-          <div class="wi-num" style="color:#0f766e;">${_whatIfMode === "absent" ? classCount : "—"}</div>
+          <div class="wi-num" style="color:#0f766e;">
+  ${
+    _whatIfMode === "absent"
+      ? classCount
+      : Math.max(
+          0,
+          Math.floor((newPresent - 0.85 * newTotal) / 0.85)
+        )
+  }
+</div>
  <div class="wi-label">
   ${_whatIfMode === "absent" ? "Classes Absent" : "Class Bunk"}
 </div>
