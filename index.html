@@ -1042,7 +1042,22 @@
         <div class="wi-box">
           <div class="wi-num" style="color:#0f766e;">${_whatIfMode === "absent" ? classCount : "—"}</div>
           <div class="wi-label">${_whatIfMode === "absent" ? "Classes Absent" : "All Classes Attended"}</div>
-          <div class="wi-sub">${_whatIfMode === "absent" ? `${Math.floor(classCount/8) > 0 ? Math.floor(classCount/8) + " day(s) missed" : ""}` : "All classes attended"}</div>
+
+<div class="wi-sub">
+  ${
+    _whatIfMode === "absent"
+      ? (
+          fullDays > 0 && extraSlots > 0
+            ? `${fullDays} Full Day${fullDays > 1 ? "s" : ""} + ${extraSlots} Classes missed`
+            : fullDays > 0
+              ? `${fullDays} Full Day${fullDays > 1 ? "s" : ""} missed`
+              : `${extraSlots} Classes missed`
+        )
+      : "All classes attended"
+  }
+</div>
+
+          
         </div>
 
       </div>
