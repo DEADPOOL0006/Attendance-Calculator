@@ -1041,7 +1041,9 @@
 
         <div class="wi-box">
           <div class="wi-num" style="color:#0f766e;">${_whatIfMode === "absent" ? classCount : "—"}</div>
-          <div class="wi-label">${_whatIfMode === "absent" ? "Classes Absent" : "All Classes Attended"}</div>
+ <div class="wi-label">
+  ${_whatIfMode === "absent" ? "Classes Absent" : "Class Bunk"}
+</div>
 
 <div class="wi-sub">
   ${
@@ -1053,10 +1055,27 @@
               ? `${fullDays} Full Day${fullDays > 1 ? "s" : ""} missed`
               : `${extraSlots} Classes missed`
         )
-      : "All classes attended"
+      : (
+          (() => {
+            const bunk = Math.max(
+              0,
+              Math.floor((newPresent - 0.85 * newTotal) / 0.85)
+            );
+
+            const bunkDays = Math.floor(bunk / 8);
+            const bunkExtra = bunk % 8;
+
+            if (bunkDays > 0 && bunkExtra > 0) {
+              return `${bunkDays} Full Day${bunkDays > 1 ? "s" : ""} + ${bunkExtra} Classes bunk`;
+            } else if (bunkDays > 0) {
+              return `${bunkDays} Full Day${bunkDays > 1 ? "s" : ""} bunk`;
+            } else {
+              return `${bunk} Classes bunk`;
+            }
+          })()
+        )
   }
 </div>
-
           
         </div>
 
